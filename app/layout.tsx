@@ -1,8 +1,26 @@
 import type { Metadata, Viewport } from 'next'
+import { Analytics } from './analytics'
 import './globals.css'
 import './reintegration-overrides.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://re-integration.org'),
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    url: '/',
+    siteName: 'Re-integration',
+  },
+  twitter: {
+    card: 'summary',
+  },
   title: 'Re-integration · Entorno de coordinación',
   description:
     'Rediseñamos el entorno donde tu equipo coordina, decide y comparte criterio para convertir IA, capacitación y herramientas en capacidad real.',
@@ -48,6 +66,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   )

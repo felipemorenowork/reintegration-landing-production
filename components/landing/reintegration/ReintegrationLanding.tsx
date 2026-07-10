@@ -2,12 +2,58 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import { BarChart3, Bot, GraduationCap, Users, Wrench } from "lucide-react"
+import { trackEvent } from "../../../app/analytics"
 import { auditFrames, checkSteps, ctaLabel, flowLenses, googleFormEntries, googleFormResponseUrl } from "./content"
 
 type AuditMode = (typeof auditFrames)[number]["mode"]
 type FlowLens = (typeof flowLenses)[number]["id"]
 
 export function ReintegrationLanding() {
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return
+
+      const cta = event.target.closest<HTMLAnchorElement>('a[href="#formulario"]')
+      if (cta) {
+        trackEvent("cta_clicked", {
+          location: cta.className || "landing",
+          cta_label: cta.textContent?.trim() || "coordination_check",
+        })
+        return
+      }
+
+      const flowLens = event.target.closest<HTMLElement>("[data-flow-lens]")
+      if (flowLens?.dataset.flowLens) {
+        trackEvent("flow_lens_selected", {
+          lens: flowLens.dataset.flowLens,
+        })
+      }
+    }
+
+    const onFormFocus = (event: FocusEvent) => {
+      if (!(event.target instanceof Element)) return
+      if (!event.target.closest("[data-ri-form]")) return
+      trackEvent("form_started", { form_name: "coordination_check" })
+      document.removeEventListener("focusin", onFormFocus)
+    }
+
+    const onFormSubmit = (event: Event) => {
+      if (!(event.target instanceof HTMLFormElement)) return
+      if (!event.target.matches("[data-ri-form]")) return
+      trackEvent("form_submitted", { form_name: "coordination_check" })
+    }
+
+    document.addEventListener("click", onClick)
+    document.addEventListener("focusin", onFormFocus)
+    document.addEventListener("submit", onFormSubmit, true)
+
+    return () => {
+      document.removeEventListener("click", onClick)
+      document.removeEventListener("focusin", onFormFocus)
+      document.removeEventListener("submit", onFormSubmit, true)
+    }
+  }, [])
+
   return (
     <main className="ri-landing">
       <SiteNav />
