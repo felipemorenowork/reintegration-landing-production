@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import { BarChart3, Bot, GraduationCap, Users, Wrench } from "lucide-react"
 import { trackEvent } from "../../../app/analytics"
-import { auditFrames, checkSteps, ctaLabel, flowLenses, googleFormEntries, googleFormResponseUrl } from "./content"
+import { auditFrames, checkSteps, contactEmail, ctaLabel, flowLenses, googleFormEntries, googleFormResponseUrl } from "./content"
 
 type AuditMode = (typeof auditFrames)[number]["mode"]
 type FlowLens = (typeof flowLenses)[number]["id"]
@@ -778,7 +778,11 @@ function FaqCtaSection() {
 })();`,
         }}
       />
-      <footer className="ri-footer-line"><span>Re-integration / FLOW</span><span>No otro curso. No otra herramienta. El entorno debajo de todo.</span></footer>
+      <footer className="ri-footer-line">
+        <span>Re-integration / FLOW</span>
+        <span>No otro curso. No otra herramienta. El entorno debajo de todo.</span>
+        <a className="ri-footer-mail" href={`mailto:${contactEmail}`}>Contacto: {contactEmail}</a>
+      </footer>
     </section>
   )
 }

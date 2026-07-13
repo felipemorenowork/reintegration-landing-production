@@ -2545,6 +2545,7 @@
     position: relative;
     z-index: 2;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 18px;
     padding-top: 18px;
@@ -2555,6 +2556,19 @@
     font-weight: 900;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+  }
+
+  .ri-footer-line .ri-footer-mail {
+    color: var(--ri-teal);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .ri-footer-line .ri-footer-mail:hover,
+  .ri-footer-line .ri-footer-mail:focus-visible {
+    color: var(--ri-ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   @keyframes riDash {
@@ -2795,6 +2809,7 @@
 
     .ri-footer-line {
       flex-direction: column;
+      align-items: flex-start;
     }
   }
 }

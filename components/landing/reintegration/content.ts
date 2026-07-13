@@ -1,5 +1,7 @@
 export const ctaLabel = "Solicitar Chequeo de Coordinación"
 
+export const contactEmail = "felipe@re-integration.org"
+
 export const googleFormUrl =
   "https://docs.google.com/forms/d/e/1FAIpQLSfJzaBx5rg7zEYn3xCnj9sKXry3gnAayRcnJiYCwHNwIcwkqQ/viewform?usp=dialog"
 
