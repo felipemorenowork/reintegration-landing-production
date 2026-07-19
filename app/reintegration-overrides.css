@@ -987,6 +987,35 @@
   padding: 24px;
 }
 
+.ri-final .ri-form-confirmation {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  min-height: 320px;
+  padding: 38px 24px;
+  background: rgba(0, 121, 112, 0.06);
+}
+
+.ri-final .ri-form-confirmation h4,
+.ri-final .ri-form-confirmation p {
+  max-width: 28ch;
+  margin: 0;
+}
+
+.ri-final .ri-form-confirmation h4 {
+  color: var(--ri-ink);
+  font-family: var(--font-fraunces);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  line-height: 0.98;
+}
+
+.ri-final .ri-form-confirmation > p:last-child {
+  color: rgba(16, 23, 28, 0.62);
+  font-size: clamp(0.95rem, 1vw, 1.02rem);
+  line-height: 1.5;
+}
+
 .ri-final .ri-form-panel input,
 .ri-final .ri-form-panel textarea {
   background: rgba(255, 255, 255, 0.68);

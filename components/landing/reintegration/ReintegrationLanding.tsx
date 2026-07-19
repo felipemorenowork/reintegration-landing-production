@@ -30,27 +30,10 @@ export function ReintegrationLanding() {
       }
     }
 
-    const onFormFocus = (event: FocusEvent) => {
-      if (!(event.target instanceof Element)) return
-      if (!event.target.closest("[data-ri-form]")) return
-      trackEvent("form_started", { form_name: "coordination_check" })
-      document.removeEventListener("focusin", onFormFocus)
-    }
-
-    const onFormSubmit = (event: Event) => {
-      if (!(event.target instanceof HTMLFormElement)) return
-      if (!event.target.matches("[data-ri-form]")) return
-      trackEvent("form_submitted", { form_name: "coordination_check" })
-    }
-
     document.addEventListener("click", onClick)
-    document.addEventListener("focusin", onFormFocus)
-    document.addEventListener("submit", onFormSubmit, true)
 
     return () => {
       document.removeEventListener("click", onClick)
-      document.removeEventListener("focusin", onFormFocus)
-      document.removeEventListener("submit", onFormSubmit, true)
     }
   }, [])
 
@@ -727,6 +710,19 @@ function CoordinationCheckSection() {
 
 function FaqCtaSection() {
   const [submitted, setSubmitted] = useState(false)
+  const formStartedRef = useRef(false)
+
+  const handleFormFocus = () => {
+    if (formStartedRef.current) return
+
+    formStartedRef.current = true
+    trackEvent("form_started", { form_name: "coordination_check" })
+  }
+
+  const handleFormSubmit = () => {
+    trackEvent("form_submitted", { form_name: "coordination_check" })
+    window.setTimeout(() => setSubmitted(true), 600)
+  }
 
   return (
     <section className="ri-final" id="formulario">
@@ -735,49 +731,29 @@ function FaqCtaSection() {
       <div className="ri-final-body">
         <aside className="ri-form-panel" aria-label="Formulario de chequeo">
           <div className="ri-form-head"><p className="ri-kicker">Siguiente paso</p><h3>Solicitar Chequeo de Coordinación.</h3><p>Cuéntanos qué se está volviendo pesado de coordinar. Respondemos con el siguiente paso, no con una secuencia eterna.</p></div>
-          <form
-            action={googleFormResponseUrl}
-            data-ri-form
-            method="post"
-            target="ri-google-form-target"
-            onSubmit={() => {
-              window.setTimeout(() => setSubmitted(true), 600)
-            }}
-          >
-            <input type="hidden" name="fvv" value="1" />
-            <input type="hidden" name="pageHistory" value="0" />
-            <label>Nombre<input name={googleFormEntries.name} autoComplete="name" placeholder="Tu nombre" required /></label>
-            <label>Email<input name={googleFormEntries.email} type="email" autoComplete="email" placeholder="nombre@empresa.com" required /></label>
-            <label>Empresa<input name={googleFormEntries.company} autoComplete="organization" placeholder="Nombre de la empresa" required /></label>
-            <label>¿Qué cuesta coordinar hoy?<textarea name={googleFormEntries.coordinationPain} placeholder="Ej. demasiadas aprobaciones, reuniones largas, decisiones que vuelven al líder..." required /></label>
-            <button className="ri-form-submit" type="submit">{ctaLabel}</button>
-            <div className="ri-success" data-ri-success hidden={!submitted} role="status">Solicitud enviada. Te responderemos pronto.</div>
-            <p>Registramos la solicitud y guardamos el seguimiento sin sacarte de esta página.</p>
-            <p>Sin spam. Usamos esta información solo para entender si el chequeo tiene sentido para tu equipo.</p>
-          </form>
+          {submitted ? (
+            <div className="ri-form-confirmation" role="status">
+              <p className="ri-kicker">Solicitud enviada</p>
+              <h4>Gracias. Te responderemos pronto.</h4>
+              <p>Recibimos tu información y la revisaremos para definir el siguiente paso.</p>
+            </div>
+          ) : (
+            <form action={googleFormResponseUrl} data-ri-form method="post" target="ri-google-form-target" onFocus={handleFormFocus} onSubmit={handleFormSubmit}>
+              <input type="hidden" name="fvv" value="1" />
+              <input type="hidden" name="pageHistory" value="0" />
+              <label>Nombre<input name={googleFormEntries.name} autoComplete="name" placeholder="Tu nombre" required /></label>
+              <label>Email<input name={googleFormEntries.email} type="email" autoComplete="email" placeholder="nombre@empresa.com" required /></label>
+              <label>Empresa<input name={googleFormEntries.company} autoComplete="organization" placeholder="Nombre de la empresa" required /></label>
+              <label>¿Qué cuesta coordinar hoy?<textarea name={googleFormEntries.coordinationPain} placeholder="Ej. demasiadas aprobaciones, reuniones largas, decisiones que vuelven al líder..." required /></label>
+              <button className="ri-form-submit" type="submit">{ctaLabel}</button>
+              <p>Registramos la solicitud y guardamos el seguimiento sin sacarte de esta página.</p>
+              <p>Sin spam. Usamos esta información solo para entender si el chequeo tiene sentido para tu equipo.</p>
+            </form>
+          )}
           <iframe className="ri-hidden-frame" name="ri-google-form-target" title="Envio de formulario" aria-hidden="true" />
           <div className="ri-secondary-note">Respuestas centralizadas en Google Forms y seguimiento simple en Sheets.</div>
         </aside>
       </div>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(() => {
-  const script = document.currentScript;
-  const root = script && script.closest(".ri-final");
-  if (!root || root.dataset.formBinder === "ready") return;
-  root.dataset.formBinder = "ready";
-  const form = root.querySelector("[data-ri-form]");
-  const success = root.querySelector("[data-ri-success]");
-  if (!form || !success) return;
-  form.addEventListener("submit", () => {
-    window.setTimeout(() => {
-      success.hidden = false;
-      success.textContent = "Solicitud enviada. Te responderemos pronto.";
-    }, 650);
-  });
-})();`,
-        }}
-      />
       <footer className="ri-footer-line">
         <span>Re-integration / FLOW</span>
         <span>No otro curso. No otra herramienta. El entorno debajo de todo.</span>
