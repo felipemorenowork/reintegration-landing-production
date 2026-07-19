@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from 'next'
-import { Analytics } from './analytics'
 import './globals.css'
 import './reintegration-overrides.css'
+
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://re-integration.org'),
@@ -64,9 +65,26 @@ export default function RootLayout({
         '--font-fraunces': 'Georgia, "Times New Roman", serif',
       } as React.CSSProperties}
     >
+      <head>
+        {gaMeasurementId ? (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
+            <script
+              id="google-analytics"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  window.gtag = function gtag(){window.dataLayer.push(arguments);};
+                  window.gtag('js', new Date());
+                  window.gtag('config', '${gaMeasurementId}', { anonymize_ip: true });
+                `,
+              }}
+            />
+          </>
+        ) : null}
+      </head>
       <body className="font-sans antialiased">
         {children}
-        <Analytics />
       </body>
     </html>
   )
