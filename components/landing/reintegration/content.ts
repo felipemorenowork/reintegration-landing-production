@@ -1,202 +1,132 @@
-export const ctaLabel = "Solicitar Chequeo de Coordinación"
+export const ctaLabel = "Solicitar Diagnóstico de un resultado crítico"
 
 export const contactEmail = "felipe@re-integration.org"
 
-export const googleFormUrl =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfJzaBx5rg7zEYn3xCnj9sKXry3gnAayRcnJiYCwHNwIcwkqQ/viewform?usp=dialog"
-
-export const googleFormResponseUrl =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfJzaBx5rg7zEYn3xCnj9sKXry3gnAayRcnJiYCwHNwIcwkqQ/formResponse"
-
-export const googleFormEntries = {
-  name: "entry.1350892399",
-  email: "entry.1849915413",
-  company: "entry.726640234",
-  coordinationPain: "entry.1988325392",
-} as const
-
-export const auditFrames = [
+export const heroOptions = [
   {
-    mode: "overview",
-    code: "FIG. 02-A",
-    ghost: "COSTO",
-    kicker: "Auditoría de sistemas de trabajo · foco de crecimiento",
-    headline: ["Excelente talento.", "Operación costosa."],
-    body: "La falta de velocidad no siempre viene de falta de capacidad. A veces viene de un entorno mal diseñado: personas brillantes resolviendo urgencias, improvisando procesos y buscando información básica para poder avanzar.",
-    statA: "6",
-    statALabel: "fugas de rentabilidad",
-    statADetail: "Fricciones diarias que actúan como un impuesto silencioso sobre la capacidad del equipo.",
-    statB: "1",
-    statBLabel: "causa raíz",
-    statBDetail: "El entorno de coordinación determina la velocidad a la que el negocio puede escalar.",
+    id: "resultado",
+    name: "Resultado crítico · recomendada",
+    eyebrow: "REDISEÑO DEL TRABAJO / HUMANO + IA",
+    headline: ["Diseñamos cómo tu equipo", "puede mejorar un", "resultado con IA."],
+    lede: "Consultoría de IA y diseño del trabajo para mejorar un resultado de negocio: rediseñamos cómo tu equipo decide, comparte información y valida trabajo, sin perder responsabilidad humana.",
+    artifact: "resultado",
   },
   {
-    mode: "training",
-    code: "FIG. 02-B",
-    ghost: "LUNES",
-    kicker: "Síntoma 01 · el lunes vuelve el sistema",
-    headline: ["La capacitación enseña.", "El entorno decide."],
-    body: "Un curso puede abrir criterio, lenguaje y motivación. Pero si el lunes el equipo vuelve a los mismos canales, urgencias, aprobaciones y reglas invisibles, el entorno anterior recupera el control.",
-    statA: "1",
-    statALabel: "lunes de regreso",
-    statADetail: "El día en que el sistema real prueba si algo cambió.",
-    statB: "0",
-    statBLabel: "transferencia sostenida",
-    statBDetail: "La habilidad nueva no sobrevive si el entorno no la sostiene.",
+    id: "equipo",
+    name: "Decisiones del equipo",
+    eyebrow: "TRABAJO REAL / DECISIONES VISIBLES",
+    headline: ["Tu equipo no necesita", "más IA aislada.", "Necesita decidir mejor con ella."],
+    lede: "Definimos qué cambia en el trabajo, qué juicio sigue siendo humano y cómo el equipo aprende de cada excepción.",
+    artifact: "decisiones",
   },
   {
-    mode: "ai",
-    code: "FIG. 02-C",
-    ghost: "IA",
-    kicker: "Síntoma 02 · tecnología sin estructura",
-    headline: ["Automatizar el caos", "acelera las pérdidas."],
-    body: "La IA puede producir más documentos, respuestas y reportes. Pero si el criterio, las decisiones y la información siguen dispersos, la tecnología aumenta volumen sin convertirlo en capacidad real.",
-    statA: "++",
-    statALabel: "ruido operativo",
-    statADetail: "Más output que el equipo debe revisar, corregir o ignorar.",
-    statB: "0",
-    statBLabel: "escala real",
-    statBDetail: "La herramienta acelera tareas individuales, no la coordinación del sistema.",
-  },
-  {
-    mode: "router",
-    code: "FIG. 02-D",
-    ghost: "LÍDER",
-    kicker: "Síntoma 03 · falta de autonomía real",
-    headline: ["Liderar no es", "gestionar el tráfico."],
-    body: "El equipo no toma más iniciativa cuando el entorno premia la validación constante. Si cada duda pequeña debe pasar por el líder, la autonomía se vuelve discurso y la dependencia se vuelve cultura.",
-    statA: "1",
-    statALabel: "embudo operativo",
-    statADetail: "La proactividad se apaga esperando confirmación.",
-    statB: "N",
-    statBLabel: "consultas de validación",
-    statBDetail: "La falta de criterios compartidos bloquea el empoderamiento real.",
-  },
-  {
-    mode: "client",
-    code: "FIG. 02-E",
-    ghost: "CLIENTE",
-    kicker: "Síntoma 04 · calidad del trabajo entregado",
-    headline: ["Lo que pasa adentro", "se refleja afuera."],
-    body: "No puedes pedir excelencia hacia el cliente si el equipo trabaja con traspasos rotos, contexto incompleto y presión constante por corregir fallas internas. La experiencia externa copia la coordinación interna.",
-    statA: "!",
-    statALabel: "errores de entrega",
-    statADetail: "Fallas visibles causadas por información perdida dentro del flujo.",
-    statB: "?",
-    statBLabel: "desgaste de frontline",
-    statBDetail: "Personas dando explicaciones por problemas que el entorno produjo.",
-  },
-  {
-    mode: "meetings",
-    code: "FIG. 02-F",
-    ghost: "JUNTAS",
-    kicker: "Síntoma 05 · coordinación de emergencia",
-    headline: ["Demasiadas reuniones.", "Muy poco sistema."],
-    body: "Cuando el entorno no muestra prioridades, responsables, avances y criterios, la empresa compensa con reuniones. El calendario se convierte en el sistema operativo que nadie diseñó.",
-    statA: "∞",
-    statALabel: "estatus repetido",
-    statADetail: "La misma información se reconstruye en vivo porque no existe visibilidad suficiente.",
-    statB: "+",
-    statBLabel: "carga de coordinación",
-    statBDetail: "Más tiempo alineando el trabajo que avanzándolo.",
-  },
-  {
-    mode: "memory",
-    code: "FIG. 02-G",
-    ghost: "CRITERIO",
-    kicker: "Síntoma 06 · riesgo de continuidad",
-    headline: ["Si tu experto se va,", "¿qué deja de funcionar?"],
-    body: "Cuando el criterio vive en dos o tres cabezas, la empresa no es dueña de su conocimiento operativo. Cada ausencia, renuncia o cambio de rol vuelve frágil una parte del negocio.",
-    statA: "10x",
-    statALabel: "costo de retrabajo",
-    statADetail: "Tiempo perdido repitiendo explicaciones, buscando archivos y reconstruyendo contexto.",
-    statB: "↓",
-    statBLabel: "valor del sistema",
-    statBDetail: "El negocio vale menos cuando depende de personas clave y no de memoria operativa.",
+    id: "roles",
+    name: "Roles humano + IA",
+    eyebrow: "ROLES / DECISIONES / RESULTADOS",
+    headline: ["Cuando la IA cambia el trabajo,", "los roles también", "tienen que cambiar."],
+    lede: "Diseñamos responsabilidades, decisiones e información alrededor de un resultado que el equipo debe poder responder.",
+    artifact: "roles",
   },
 ] as const
 
-export const flowLenses = [
+export const entryDoors = [
   {
-    id: "flow",
     index: "01",
-    title: "Flujo",
-    subtitle: "Donde se detiene el trabajo.",
-    body: "Detecta en qué punto se corta el avance, se pierde contexto o una decisión vuelve a subir.",
-    caption: "donde se detiene el trabajo",
+    title: "Mejorar un resultado de negocio.",
+    prompt: "Necesito entregar, responder, producir o decidir mejor; no sé dónde intervenir.",
+    body: "Revisamos dónde se concentra la restricción y si cambiar una decisión, la información, la coordinación o el uso de IA puede aportar.",
   },
   {
-    id: "load",
     index: "02",
-    title: "Carga",
-    subtitle: "El costo invisible de coordinar.",
-    body: "Mide qué ruido, búsqueda, interrupción o retrabajo consume energía antes de que el equipo produzca.",
-    caption: "ruido, búsqueda e interrupción",
+    title: "Incorporar IA con orden.",
+    prompt: "Ya usamos o queremos escalar IA, pero no sabemos cómo funcionará el equipo.",
+    body: "Definimos qué trabajo cambia, qué controles humanos hacen falta y cómo evitar que la adopción de IA se vuelva individual y dispersa.",
+  },
+] as const
+
+export const sprintDeliverables = [
+  {
+    index: "01",
+    title: "Diseño del trabajo crítico.",
+    body: "Resultado, actividades, decisiones, información, validaciones, excepciones y puntos donde se pierde contexto.",
   },
   {
-    id: "order",
+    index: "02",
+    title: "Acuerdos de operación humano + IA.",
+    body: "Quién decide, valida, corrige, detiene o escala; qué puede usarse, qué debe comprobarse y cómo se registra un caso nuevo.",
+  },
+  {
     index: "03",
-    title: "Orden",
-    subtitle: "Los acuerdos que faltan.",
-    body: "Aclara qué decisiones, límites, criterios y responsabilidades necesitan dejar de resolverse caso por caso.",
-    caption: "decisiones, límites y acuerdos",
+    title: "Primer ciclo de aprendizaje.",
+    body: "Responsable, señales de resultado y una revisión para decidir qué regla se mantiene, cambia o se detiene.",
+  },
+] as const
+
+export const diagnosticSteps = [
+  {
+    index: "01",
+    title: "Conversación de encaje.",
+    body: "Resultado, contexto, sponsor y evidencia disponible. Es breve y sin costo.",
   },
   {
-    id: "memory",
+    index: "02",
+    title: "Sesión de diagnóstico.",
+    body: "Una sesión de trabajo y revisión de la evidencia existente; no entrevistas extensas al equipo.",
+  },
+  {
+    index: "03",
+    title: "Nota de decisión.",
+    body: "Resultado, hipótesis, fricciones, frente prioritario y siguiente prueba —o el límite claro si IA no es la respuesta.",
+  },
+] as const
+
+export const impactOutcomes = [
+  {
+    index: "01",
+    title: "Decisiones que no vuelven siempre al gerente.",
+    body: "El equipo sabe qué puede resolver, qué evidencia necesita y cuándo una excepción sí debe escalar.",
+  },
+  {
+    index: "02",
+    title: "Menos reuniones para reconstruir el estado del trabajo.",
+    body: "La información, las prioridades y los acuerdos quedan visibles donde el equipo realmente trabaja.",
+  },
+  {
+    index: "03",
+    title: "Una respuesta al cliente que refleja la coordinación interna.",
+    body: "Cuando el equipo comparte criterio y contexto, la entrega deja de depender de perseguir respuestas entre áreas.",
+  },
+  {
     index: "04",
-    title: "Memoria operativa",
-    subtitle: "El criterio que debe quedar en el sistema.",
-    body: "Define qué aprendizaje, contexto y criterio debe dejar de vivir en cabezas individuales.",
-    caption: "criterio que deja de vivir en cabezas",
+    title: "Aprendizaje que queda después de una excepción.",
+    body: "Cada corrección puede convertirse en una regla, una validación o una señal que mejora el siguiente caso.",
   },
 ] as const
 
-export const checkSteps = [
+export const faqEntries = [
   {
-    tone: "observe",
-    index: "01 / observar",
-    title: "El entorno real.",
-    body: "Reuniones, handoffs, decisiones, aprobaciones y memoria operativa tal como funcionan hoy.",
+    question: "¿Qué hace Re-integration?",
+    answer: "Somos una consultoría de IA enfocada en el diseño organizacional y del trabajo. Rediseñamos decisiones, información y validaciones en un proceso crítico para mejorar un resultado de negocio concreto, con responsabilidad humana y una prueba medible.",
   },
   {
-    tone: "map",
-    index: "02 / mapear",
-    title: "La fricción que se repite.",
-    body: "Dónde se pierde contexto, qué vuelve a preguntarse y qué depende de pocas personas.",
+    question: "¿Cómo abordamos la mejora de procesos con IA?",
+    answer: "Primero identificamos el resultado de negocio y el trabajo que lo limita. Después diseñamos decisiones, información, validaciones y responsabilidades en un frente concreto. La IA entra si aporta, y el Sprint deja una prueba medible para ajustar el proceso.",
   },
   {
-    tone: "prioritize",
-    index: "03 / priorizar",
-    title: "El primer rediseño.",
-    body: "No todo a la vez. Solo el punto donde cambiar el entorno libera más capacidad.",
+    question: "¿La IA siempre es parte de la solución?",
+    answer: "No. El Diagnóstico puede concluir que la IA no es pertinente o que la restricción requiere otra especialidad. Llegar a ese límite con claridad también es una salida útil.",
   },
   {
-    tone: "clarity",
-    index: "04 / salir con claridad",
-    title: "Qué hacer primero.",
-    body: "Un mapa simple: qué rediseñar, por qué importa y cuál es el siguiente movimiento.",
+    question: "¿Qué incluye el Diagnóstico de un resultado crítico?",
+    answer: "Incluye una conversación de encaje breve y sin costo, una sesión de diagnóstico, revisión de evidencia disponible y una nota de decisión que recomienda el frente prioritario o un límite claro.",
+  },
+  {
+    question: "¿Re-integration acompaña la implementación de IA?",
+    answer: "Diseñamos el trabajo, las responsabilidades y la prueba que una implementación de IA necesita. Si el caso requiere desarrollo o integración, esa parte técnica la realiza un proveedor especializado con quien podemos coordinar.",
   },
 ] as const
 
-export const faqs = [
-  {
-    question: "¿Esto es consultoría tradicional?",
-    answer: "No vendemos un informe para que se quede guardado. El chequeo busca ubicar una intervención concreta sobre el entorno de trabajo: reglas, criterio, loops, handoffs y memoria operativa.",
-  },
-  {
-    question: "¿Tengo que cambiar mis herramientas?",
-    answer: "No necesariamente. Re-integration no empieza reemplazando software. Primero mira cómo se coordina el trabajo debajo de las herramientas que ya existen.",
-  },
-  {
-    question: "¿Implementan IA?",
-    answer: "IA puede ser una puerta de entrada, pero no somos implementadores de IA. Si la IA no tiene criterio, ownership y memoria operativa alrededor, solo acelera el desorden.",
-  },
-  {
-    question: "¿Para qué tipo de equipo aplica?",
-    answer: "Para equipos donde ya hay talento, pero la coordinación depende demasiado de reuniones, aprobaciones, líderes saturados o criterio que vive en pocas personas.",
-  },
-  {
-    question: "¿Qué recibo después del chequeo?",
-    answer: "Claridad sobre dónde intervenir primero, por qué ese punto importa y qué tipo de rediseño puede devolver capacidad operativa real.",
-  },
+export const technicalBoundaries = [
+  "Diseñamos el trabajo, las responsabilidades y la prueba. La implementación técnica puede realizarse con un proveedor especializado cuando el caso lo requiere.",
+  "No sustituimos ingeniería industrial ni certificamos infraestructura, ciberseguridad, datos, privacidad o cumplimiento legal.",
 ] as const

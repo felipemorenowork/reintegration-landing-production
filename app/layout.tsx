@@ -1,11 +1,61 @@
 import type { Metadata, Viewport } from 'next'
+import { faqEntries } from '../components/landing/reintegration/content'
 import './globals.css'
 import './reintegration-overrides.css'
+import './reintegration-product-refresh.css'
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+const siteUrl = 'https://re-integration.org'
+const siteTitle = 'Consultoría de IA para resultados de negocio | Re-integration'
+const siteDescription =
+  'Consultoría de IA y diseño del trabajo para mejorar resultados de negocio. Empezamos con el Diagnóstico de un resultado crítico y una prueba medible.'
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'Re-integration',
+      url: siteUrl,
+      email: 'felipe@re-integration.org',
+      logo: `${siteUrl}/brand/reintegration-logo.jpg`,
+      description: siteDescription,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      name: 'Re-integration',
+      url: siteUrl,
+      inLanguage: 'es',
+    },
+    {
+      '@type': 'Service',
+      '@id': `${siteUrl}/#servicio`,
+      name: 'Diseñamos cómo tu equipo puede mejorar un resultado con IA',
+      description:
+        'Consultoría de IA y diseño organizacional para mejorar un resultado de negocio mediante el rediseño del trabajo humano más IA.',
+      provider: { '@id': `${siteUrl}/#organization` },
+      audience: {
+        '@type': 'BusinessAudience',
+        audienceType: 'Dueños-gerentes y líderes de Operaciones',
+      },
+      availableLanguage: 'es',
+      url: siteUrl,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqEntries.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    },
+  ],
+}
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://re-integration.org'),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
   },
@@ -18,14 +68,27 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     url: '/',
     siteName: 'Re-integration',
+    title: siteTitle,
+    description: siteDescription,
+    images: [{ url: '/brand/re-integration-og.png', width: 1200, height: 630, alt: 'Re-integration: diseñamos cómo tu equipo puede mejorar un resultado con IA' }],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
+    images: ['/brand/re-integration-og.png'],
   },
-  title: 'Re-integration · Entorno de coordinación',
-  description:
-    'Rediseñamos el entorno donde tu equipo coordina, decide y comparte criterio para convertir IA, capacitación y herramientas en capacidad real.',
-  generator: 'v0.app',
+  title: siteTitle,
+  description: siteDescription,
+  keywords: [
+    'consultoría de IA',
+    'IA para empresas',
+    'resultados de negocio',
+    'mejora de procesos con IA',
+    'rediseño de procesos con IA',
+    'implementación de IA en empresas',
+    'diseño del trabajo',
+    'adopción de IA',
+    'diseño organizacional',
+  ],
   icons: {
     icon: [
       {
@@ -47,7 +110,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: 'white',
+  themeColor: '#fcfaf4',
 }
 
 export default function RootLayout({
@@ -66,6 +129,12 @@ export default function RootLayout({
       } as React.CSSProperties}
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
+          }}
+        />
         {gaMeasurementId ? (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />

@@ -1,0 +1,29 @@
+# Re-integration
+
+> Re-integration diseña cómo un equipo puede mejorar un resultado de negocio con IA, sin perder responsabilidad humana.
+
+## Qué hace
+
+Re-integration es una consultoría de IA y diseño del trabajo para dueños-gerentes y líderes de Operaciones. Rediseña cómo el equipo decide, comparte información, valida excepciones y conserva aprendizaje alrededor de un trabajo crítico para mejorar un resultado de negocio.
+
+La entrada es el Diagnóstico de un resultado crítico. Después, cuando existe encaje, el trabajo principal se realiza como un Sprint acotado sobre un frente operativo.
+
+## Dos situaciones de entrada
+
+1. Mejorar un resultado de negocio: entregar, responder, producir o decidir mejor, sin tener claro en qué trabajo intervenir.
+2. Incorporar IA con orden: definir responsabilidades, decisiones, información, validaciones y aprendizaje antes de escalar su uso.
+
+## Alcance y límites
+
+- El trabajo puede incluir IA y un proveedor técnico cuando el caso lo requiere.
+- Re-integration diseña el trabajo y la prueba; la implementación técnica puede realizarla un proveedor especializado. No certifica infraestructura, datos, ciberseguridad, privacidad o cumplimiento legal.
+- El Diagnóstico puede concluir que la IA no es pertinente o que se requiere otra especialidad.
+- El resultado y las señales para medirlo se definen con evidencia del caso. El precio se comunica al delimitar el alcance.
+
+## Página principal
+
+- https://re-integration.org/
+
+## Contacto
+
+- felipe@re-integration.org
