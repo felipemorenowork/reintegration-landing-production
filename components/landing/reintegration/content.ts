@@ -1,132 +1,64 @@
-export const ctaLabel = "Solicitar Diagnóstico de un resultado crítico"
-
+export const ctaLabel = "Conversemos sobre tu operación"
 export const contactEmail = "felipe@re-integration.org"
+export const brochureUrl = "/Re-integration-brochure.pdf"
 
-export const heroOptions = [
-  {
-    id: "resultado",
-    name: "Resultado crítico · recomendada",
-    eyebrow: "REDISEÑO DEL TRABAJO / HUMANO + IA",
-    headline: ["Diseñamos cómo tu equipo", "puede mejorar un", "resultado con IA."],
-    lede: "Consultoría de IA y diseño del trabajo para mejorar un resultado de negocio: rediseñamos cómo tu equipo decide, comparte información y valida trabajo, sin perder responsabilidad humana.",
-    artifact: "resultado",
-  },
-  {
-    id: "equipo",
-    name: "Decisiones del equipo",
-    eyebrow: "TRABAJO REAL / DECISIONES VISIBLES",
-    headline: ["Tu equipo no necesita", "más IA aislada.", "Necesita decidir mejor con ella."],
-    lede: "Definimos qué cambia en el trabajo, qué juicio sigue siendo humano y cómo el equipo aprende de cada excepción.",
-    artifact: "decisiones",
-  },
-  {
-    id: "roles",
-    name: "Roles humano + IA",
-    eyebrow: "ROLES / DECISIONES / RESULTADOS",
-    headline: ["Cuando la IA cambia el trabajo,", "los roles también", "tienen que cambiar."],
-    lede: "Diseñamos responsabilidades, decisiones e información alrededor de un resultado que el equipo debe poder responder.",
-    artifact: "roles",
-  },
+export const heroOptions = [{
+  id: "trabajo",
+  eyebrow: "RE-INTEGRATION / PERSONAS + IA",
+  headline: ["Diseño del Trabajo", "con IA."],
+  subtitle: "Contexto, coordinación y autonomía",
+  lede: "Construimos el contexto operativo que permite a personas e IA entenderse, pasarse el trabajo y decidir con claridad para mejorar resultados del negocio.",
+}] as const
+
+export const workPhases = [
+  { index: "01", title: "Contexto", prompt: "Información y criterio disponibles para trabajar.", body: "Organizamos las fuentes confiables y el conocimiento práctico de tu empresa en criterios e instrucciones que pueden usar el equipo y la IA." },
+  { index: "02", title: "Coordinación", prompt: "El trabajo avanza entre personas, áreas e IA.", body: "Acordamos qué recibe y entrega cada participante, cómo se revisa y cómo continúa el trabajo para reducir esperas y retrabajo." },
+  { index: "03", title: "Autonomía", prompt: "Cada uno sabe hasta dónde puede actuar.", body: "Definimos qué puede resolver el equipo o un agente, cuándo necesita validación y quién responde por el resultado." },
 ] as const
 
-export const entryDoors = [
+export const services = [
   {
     index: "01",
-    title: "Mejorar un resultado de negocio.",
-    prompt: "Necesito entregar, responder, producir o decidir mejor; no sé dónde intervenir.",
-    body: "Revisamos dónde se concentra la restricción y si cambiar una decisión, la información, la coordinación o el uso de IA puede aportar.",
+    id: "diagnostico",
+    name: "Diagnóstico de un resultado crítico",
+    summary: "Identificamos qué frena un resultado importante y dónde conviene intervenir primero.",
+    purpose: "Para la empresa que necesita mejorar un resultado o incorporar IA y quiere definir un punto de partida concreto.",
+    work: "Revisamos con el equipo un tramo del proceso y la información disponible. Analizamos su contexto, coordinación y autonomía.",
+    deliverable: "Una lectura ejecutiva, un mapa de los tres componentes, una medida inicial y una recomendación con el alcance del siguiente paso.",
+    timing: "Intervención pagada y acotada. Calendario estimado de una semana desde la recepción de los insumos acordados.",
+    cta: "Consultar por el Diagnóstico",
   },
   {
     index: "02",
-    title: "Incorporar IA con orden.",
-    prompt: "Ya usamos o queremos escalar IA, pero no sabemos cómo funcionará el equipo.",
-    body: "Definimos qué trabajo cambia, qué controles humanos hacen falta y cómo evitar que la adopción de IA se vuelva individual y dispersa.",
-  },
-] as const
-
-export const sprintDeliverables = [
-  {
-    index: "01",
-    title: "Diseño del trabajo crítico.",
-    body: "Resultado, actividades, decisiones, información, validaciones, excepciones y puntos donde se pierde contexto.",
-  },
-  {
-    index: "02",
-    title: "Acuerdos de operación humano + IA.",
-    body: "Quién decide, valida, corrige, detiene o escala; qué puede usarse, qué debe comprobarse y cómo se registra un caso nuevo.",
-  },
-  {
-    index: "03",
-    title: "Primer ciclo de aprendizaje.",
-    body: "Responsable, señales de resultado y una revisión para decidir qué regla se mantiene, cambia o se detiene.",
-  },
-] as const
-
-export const diagnosticSteps = [
-  {
-    index: "01",
-    title: "Conversación de encaje.",
-    body: "Resultado, contexto, sponsor y evidencia disponible. Es breve y sin costo.",
-  },
-  {
-    index: "02",
-    title: "Sesión de diagnóstico.",
-    body: "Una sesión de trabajo y revisión de la evidencia existente; no entrevistas extensas al equipo.",
-  },
-  {
-    index: "03",
-    title: "Nota de decisión.",
-    body: "Resultado, hipótesis, fricciones, frente prioritario y siguiente prueba —o el límite claro si IA no es la respuesta.",
+    id: "diseno",
+    name: "Sprint de Diseño del Trabajo",
+    summary: "Construimos y ponemos en uso una forma de trabajo entre personas e IA sobre el tramo elegido.",
+    purpose: "Para la empresa que ya tiene identificado el frente prioritario y quiere llevar el diseño a una primera prueba con el equipo.",
+    work: "Preparamos el contexto, configuramos el entorno de IA acordado y construimos reglas de coordinación y autonomía. Probamos con casos del proceso.",
+    deliverable: "Contexto e instrucciones reutilizables, acuerdos y responsabilidades, una configuración acordada en uso y un primer ciclo revisado y transferido al equipo.",
+    timing: "Proyecto pagado de alcance cerrado. Puede distribuirse en hasta cuatro semanas de calendario, según el caso y la disponibilidad del equipo.",
+    cta: "Consultar por el Sprint",
   },
 ] as const
 
 export const impactOutcomes = [
-  {
-    index: "01",
-    title: "Decisiones que no vuelven siempre al gerente.",
-    body: "El equipo sabe qué puede resolver, qué evidencia necesita y cuándo una excepción sí debe escalar.",
-  },
-  {
-    index: "02",
-    title: "Menos reuniones para reconstruir el estado del trabajo.",
-    body: "La información, las prioridades y los acuerdos quedan visibles donde el equipo realmente trabaja.",
-  },
-  {
-    index: "03",
-    title: "Una respuesta al cliente que refleja la coordinación interna.",
-    body: "Cuando el equipo comparte criterio y contexto, la entrega deja de depender de perseguir respuestas entre áreas.",
-  },
-  {
-    index: "04",
-    title: "Aprendizaje que queda después de una excepción.",
-    body: "Cada corrección puede convertirse en una regla, una validación o una señal que mejora el siguiente caso.",
-  },
+  { index: "01", title: "Capacidad para atender el crecimiento.", body: "Observamos dónde se acumulan esperas, consultas y revisiones para que el equipo pueda completar más trabajo con la capacidad disponible." },
+  { index: "02", title: "Conocimiento que el equipo puede usar.", body: "El criterio que vive en conversaciones o en la memoria de unas pocas personas se convierte en contexto disponible y actualizable." },
+  { index: "03", title: "Una respuesta comercial mejor coordinada.", body: "Conectamos la información y los acuerdos entre áreas para que la respuesta al cliente refleje lo que la empresa puede cumplir." },
+  { index: "04", title: "Más autonomía, con responsabilidad.", body: "El equipo y la IA saben qué pueden hacer y qué deben validar. El líder puede concentrar su revisión donde aporta más al resultado." },
 ] as const
 
 export const faqEntries = [
-  {
-    question: "¿Qué hace Re-integration?",
-    answer: "Somos una consultoría de IA enfocada en el diseño organizacional y del trabajo. Rediseñamos decisiones, información y validaciones en un proceso crítico para mejorar un resultado de negocio concreto, con responsabilidad humana y una prueba medible.",
-  },
-  {
-    question: "¿Cómo abordamos la mejora de procesos con IA?",
-    answer: "Primero identificamos el resultado de negocio y el trabajo que lo limita. Después diseñamos decisiones, información, validaciones y responsabilidades en un frente concreto. La IA entra si aporta, y el Sprint deja una prueba medible para ajustar el proceso.",
-  },
-  {
-    question: "¿La IA siempre es parte de la solución?",
-    answer: "No. El Diagnóstico puede concluir que la IA no es pertinente o que la restricción requiere otra especialidad. Llegar a ese límite con claridad también es una salida útil.",
-  },
-  {
-    question: "¿Qué incluye el Diagnóstico de un resultado crítico?",
-    answer: "Incluye una conversación de encaje breve y sin costo, una sesión de diagnóstico, revisión de evidencia disponible y una nota de decisión que recomienda el frente prioritario o un límite claro.",
-  },
-  {
-    question: "¿Re-integration acompaña la implementación de IA?",
-    answer: "Diseñamos el trabajo, las responsabilidades y la prueba que una implementación de IA necesita. Si el caso requiere desarrollo o integración, esa parte técnica la realiza un proveedor especializado con quien podemos coordinar.",
-  },
+  { question: "¿Qué hace Re-integration?", answer: "Diseñamos el trabajo entre personas e IA para mejorar un resultado de negocio. Nuestra especialidad es la arquitectura de contexto operativo: convertir información y conocimiento práctico en contexto utilizable, y conectarlo con la coordinación y la autonomía del equipo." },
+  { question: "¿Qué significa arquitectura de contexto operativo?", answer: "Es preparar la información y el criterio que hacen falta para trabajar: dónde está la fuente confiable, qué significa, quién la mantiene, quién puede acceder y qué instrucciones necesita la persona o la IA. Ese contexto queda disponible en el entorno que acordamos con la empresa." },
+  { question: "¿Qué incluye el diagnóstico y cuánto dura el Sprint?", answer: "El diagnóstico entrega una lectura ejecutiva, un mapa de contexto, coordinación y autonomía, una medida inicial y una recomendación. El Sprint trabaja sobre un tramo delimitado, un resultado y un entorno de IA; puede distribuirse en hasta cuatro semanas de calendario. El alcance y la disponibilidad del equipo se acuerdan antes de empezar." },
+  { question: "¿También configuran herramientas o agentes?", answer: "Sí, cuando la propuesta incluye esa configuración. Podemos preparar el contexto y configurar el entorno de IA acordado, o colaborar con el proveedor técnico de la empresa. El desarrollo a medida y las integraciones se dimensionan expresamente con sus responsables y pruebas de funcionamiento." },
+  { question: "¿Quién paga las licencias y el consumo de IA?", answer: "La empresa contrata y paga sus licencias, suscripciones y consumos de terceros. Primero revisamos qué herramientas tiene y recomendamos según el trabajo, los usuarios y el volumen previsto. Las cuentas y los espacios quedan bajo administración de la empresa." },
+  { question: "¿Cómo se comprueba la entrega?", answer: "Acordamos los casos y criterios de aceptación antes de comenzar. Si nuestro diseño o configuración falla frente a esos criterios, lo corregimos sin honorarios adicionales dentro del alcance contratado. La mejora del resultado se observa con el indicador elegido y las condiciones de cada proyecto." },
+  { question: "¿Qué pasa con los permisos y los datos de la empresa?", answer: "Antes de cargar información o habilitar acciones, acordamos con su responsable qué herramientas y datos pueden usarse y quién tiene acceso. Las reglas de autonomía del proceso se ajustan a esas condiciones. Las políticas corporativas y las revisiones especializadas de seguridad o cumplimiento se coordinan con los responsables de la empresa." },
 ] as const
 
-export const technicalBoundaries = [
-  "Diseñamos el trabajo, las responsabilidades y la prueba. La implementación técnica puede realizarse con un proveedor especializado cuando el caso lo requiere.",
-  "No sustituimos ingeniería industrial ni certificamos infraestructura, ciberseguridad, datos, privacidad o cumplimiento legal.",
+export const deliveryCommitments = [
+  "Definimos el resultado, el tramo de trabajo y los casos con los que comprobaremos la entrega antes de empezar.",
+  "Si nuestro diseño o configuración falla frente a los criterios acordados, lo corregimos sin honorarios adicionales dentro del alcance contratado.",
 ] as const

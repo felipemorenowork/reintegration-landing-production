@@ -6,9 +6,9 @@ import './reintegration-product-refresh.css'
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 const siteUrl = 'https://re-integration.org'
-const siteTitle = 'Consultoría de IA para resultados de negocio | Re-integration'
+const siteTitle = 'Diseño del Trabajo con IA | Re-integration'
 const siteDescription =
-  'Consultoría de IA y diseño del trabajo para mejorar resultados de negocio. Empezamos con el Diagnóstico de un resultado crítico y una prueba medible.'
+  'Contexto, coordinación y autonomía para el trabajo entre personas e IA. Arquitectura de contexto operativo, diagnóstico y Sprint para mejorar resultados del negocio.'
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -32,9 +32,9 @@ const structuredData = {
     {
       '@type': 'Service',
       '@id': `${siteUrl}/#servicio`,
-      name: 'Diseñamos cómo tu equipo puede mejorar un resultado con IA',
+      name: 'Diseño del Trabajo con IA',
       description:
-        'Consultoría de IA y diseño organizacional para mejorar un resultado de negocio mediante el rediseño del trabajo humano más IA.',
+        'Arquitectura de contexto operativo, coordinación y autonomía para mejorar un resultado de negocio con personas e IA. Diagnóstico y Sprint con configuración acordada, prueba y transferencia al equipo.',
       provider: { '@id': `${siteUrl}/#organization` },
       audience: {
         '@type': 'BusinessAudience',
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     siteName: 'Re-integration',
     title: siteTitle,
     description: siteDescription,
-    images: [{ url: '/brand/re-integration-og.png', width: 1200, height: 630, alt: 'Re-integration: diseñamos cómo tu equipo puede mejorar un resultado con IA' }],
+    images: [{ url: '/brand/re-integration-og.png', width: 1200, height: 630, alt: 'Re-integration: Diseño del Trabajo con IA. Contexto, coordinación y autonomía.' }],
   },
   twitter: {
     card: 'summary_large_image',

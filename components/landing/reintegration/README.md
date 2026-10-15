@@ -1,6 +1,6 @@
 # Landing Re-integration
 
-Landing pública de Re-integration para la oferta vigente: **Diseñamos cómo tu equipo puede mejorar un resultado con IA**.
+Landing pública de Re-integration para **Diseño del Trabajo con IA: contexto, coordinación y autonomía**. Actualización del 15 de octubre de 2026; Felipe autorizó su publicación tras unificar la presentación de los servicios. La oferta se consulta en `../../../../knowledge/services/producto-vigente.md`.
 
 ## Archivos principales
 
@@ -13,9 +13,9 @@ Landing pública de Re-integration para la oferta vigente: **Diseñamos cómo tu
 ## Orden de secciones
 
 1. Hero: resultado de negocio + IA, acompañado de una ilustración editorial conceptual; no representa un caso ni una implementación de cliente.
-2. Dos puertas de entrada.
-3. Diagnóstico de un resultado crítico: identifica el frente que vale la pena intervenir.
-4. Producto principal: Sprint sobre ese frente de trabajo crítico.
+2. Tres componentes conectados: contexto, coordinación y autonomía.
+3. Servicios: Diagnóstico de un resultado crítico y Sprint de Diseño del Trabajo. Ambos usan la misma tarjeta con nombre, resumen, para qué sirve, qué hacemos, qué recibes, calendario y CTA.
+4. El diagnóstico delimita la intervención y el Sprint construye y prueba el diseño; el enlace al brochure está en el hero.
 5. Resultados de trabajo buscados y límites técnicos compactos.
 6. Formulario de solicitud.
 
@@ -35,7 +35,7 @@ La conversación inicial es breve y sin costo. El Diagnóstico es una intervenci
 
 ## Límites del sitio
 
-La landing no presenta a Re-integration como proveedor de implementación técnica directa. Una solución puede incluir IA y un proveedor especializado; Re-integration diseña el trabajo, las responsabilidades, las validaciones y la prueba. Mantiene fuera ingeniería industrial y la certificación de infraestructura, ciberseguridad, datos, privacidad o cumplimiento legal.
+La configuración técnica puede formar parte del alcance contratado. El desarrollo a medida, las integraciones y los especialistas se dimensionan expresamente. La empresa administra y paga sus cuentas, licencias y consumos. Se acuerdan permisos y datos autorizados antes de iniciar. El compromiso de corrección se refiere a los criterios de aceptación dentro del alcance contratado.
 
 ## Descubrimiento orgánico y búsqueda con IA
 

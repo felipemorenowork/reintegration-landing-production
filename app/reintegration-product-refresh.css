@@ -152,6 +152,21 @@
   max-width: 830px;
 }
 
+.ri-pr-hero-subtitle {
+  margin: 24px 0 0;
+  color: var(--ri-pr-emerald);
+  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.ri-pr-hero-specialty {
+  margin: 16px 0 0;
+  color: var(--ri-pr-graphite);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
 .ri-pr-eyebrow,
 .ri-pr-record-topline,
 .ri-pr-form-head > span {
@@ -358,7 +373,7 @@
   max-width: 1440px;
   margin: clamp(36px, 6vw, 72px) auto 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -392,7 +407,7 @@
   max-width: 11em;
   margin: 38px 0 0;
   color: inherit;
-  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
   font-weight: 760;
   letter-spacing: -0.06em;
   line-height: 0.96;
@@ -993,6 +1008,9 @@
 }
 
 @media (max-width: 980px) {
+  .ri-pr-door-grid {
+    grid-template-columns: 1fr;
+  }
   .ri-pr-hero-grid,
   .ri-pr-sprint-grid,
   .ri-pr-diagnostic-grid,
@@ -1145,6 +1163,120 @@
   .ri-pr-footer-line a {
     grid-column: auto;
   }
+}
+
+.ri-pr-services {
+  padding: clamp(64px, 9vw, 126px) clamp(20px, 5vw, 84px);
+  background: var(--ri-pr-purple);
+  color: var(--ri-pr-cream);
+}
+
+.ri-pr-services-heading .ri-pr-eyebrow {
+  color: #6ee1d0;
+}
+
+.ri-pr-service-grid {
+  max-width: 1440px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.ri-pr-service-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 3.2vw, 44px);
+  border-top: 6px solid var(--ri-pr-emerald);
+  background: var(--ri-pr-cream);
+  color: var(--ri-pr-navy);
+  scroll-margin-top: 90px;
+}
+
+.ri-pr-service-label,
+.ri-pr-service-details dt {
+  margin: 0;
+  color: var(--ri-pr-emerald);
+  font-family: var(--ri-pr-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ri-pr-service-card h3 {
+  min-height: 3.15em;
+  margin: 20px 0 0;
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 750;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.ri-pr-service-summary {
+  min-height: 4.5em;
+  margin: 20px 0 0;
+  color: var(--ri-pr-graphite);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.ri-pr-service-details {
+  margin: 24px 0 0;
+}
+
+.ri-pr-service-details > div {
+  min-height: 9.7em;
+  border-top: 1px solid var(--ri-pr-line);
+  padding: 20px 0;
+}
+
+.ri-pr-service-details dd {
+  margin: 10px 0 0;
+  color: var(--ri-pr-graphite);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.ri-pr-service-card-end {
+  margin-top: auto;
+  border-top: 1px solid var(--ri-pr-line);
+  padding-top: 20px;
+}
+
+.ri-pr-service-card-end p {
+  min-height: 5.8em;
+  margin: 0 0 20px;
+  color: var(--ri-pr-graphite);
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+
+.ri-pr-service-card-end .ri-pr-button-purple {
+  background: var(--ri-pr-purple);
+  color: var(--ri-pr-cream);
+}
+
+.ri-pr-services-intro {
+  max-width: 760px;
+  margin: 30px auto 0;
+  color: var(--ri-pr-cream);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .ri-pr-service-grid { grid-template-columns: 1fr; }
+  .ri-pr-service-card h3,
+  .ri-pr-service-summary,
+  .ri-pr-service-details > div,
+  .ri-pr-service-card-end p { min-height: 0; }
+}
+
+@media (max-width: 640px) {
+  .ri-pr-services { padding-right: 18px; padding-left: 18px; }
+  .ri-pr-service-card-end .ri-pr-button { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

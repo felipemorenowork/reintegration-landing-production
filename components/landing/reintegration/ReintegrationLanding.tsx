@@ -4,14 +4,14 @@ import { useEffect, useState, type FormEvent } from "react"
 import { trackEvent } from "../../../app/analytics"
 import {
   contactEmail,
+  brochureUrl,
   ctaLabel,
-  diagnosticSteps,
-  entryDoors,
+  services,
+  workPhases,
   faqEntries,
   heroOptions,
   impactOutcomes,
-  sprintDeliverables,
-  technicalBoundaries,
+  deliveryCommitments,
 } from "./content"
 
 export function ReintegrationLanding() {
@@ -37,8 +37,7 @@ export function ReintegrationLanding() {
       <SiteNav />
       <HeroSection />
       <EntryDoorsSection />
-      <DiagnosticSection />
-      <SprintSection />
+      <ServicesSection />
       <ImpactSection />
       <FAQSection />
       <ContactSection />
@@ -53,8 +52,9 @@ function SiteNav() {
         <img src="/brand/reintegration-logo.jpg" alt="Re-integration" />
       </a>
       <div className="ri-pr-nav-meta" aria-hidden="true">
-        <span>Trabajo real</span>
-        <span>Decisiones visibles</span>
+        <span>Contexto</span>
+        <span>Coordinación</span>
+        <span>Autonomía</span>
       </div>
       <a className="ri-pr-nav-cta" href="#formulario">{ctaLabel}</a>
     </nav>
@@ -71,13 +71,14 @@ function HeroSection() {
           <p className="ri-pr-eyebrow">{hero.eyebrow}</p>
           <h1>
             <span>{hero.headline[0]}</span>
-            <span>{hero.headline[1]}</span>
-            <strong>{hero.headline[2]}</strong>
+            <strong>{hero.headline[1]}</strong>
           </h1>
+          <p className="ri-pr-hero-subtitle">{hero.subtitle}</p>
+          <p className="ri-pr-hero-specialty">Arquitectura de contexto operativo</p>
           <p className="ri-pr-hero-lede">{hero.lede}</p>
           <div className="ri-pr-hero-actions">
             <a className="ri-pr-button ri-pr-button-dark" href="#formulario">{ctaLabel}</a>
-            <a className="ri-pr-text-link" href="#diagnostico">Ver el recorrido <span aria-hidden="true">↓</span></a>
+            <a className="ri-pr-text-link" href={brochureUrl} target="_blank" rel="noopener noreferrer">Ver presentación <span aria-hidden="true">↗</span></a>
           </div>
         </article>
 
@@ -103,12 +104,12 @@ function EntryDoorsSection() {
   return (
     <section className="ri-pr-doors" id="puertas">
       <header className="ri-pr-section-head ri-pr-section-head-dark">
-        <p className="ri-pr-eyebrow">PUNTO DE PARTIDA</p>
-        <h2>Dos situaciones.<span>Un mismo producto.</span></h2>
-        <p>La IA nombra el momento actual. El punto de partida es el resultado que el equipo necesita mejorar.</p>
+        <p className="ri-pr-eyebrow">TRES COMPONENTES CONECTADOS</p>
+        <h2>Tres fases para trabajar<span>mejor con IA.</span></h2>
+        <p>Trabajamos las tres fases sobre un resultado concreto: capacidad, velocidad comercial, calidad o costo del retrabajo.</p>
       </header>
       <div className="ri-pr-door-grid">
-        {entryDoors.map((door) => (
+        {workPhases.map((door) => (
           <article className="ri-pr-door-card" key={door.index}>
             <span>{door.index}</span>
             <h3>{door.title}</h3>
@@ -121,63 +122,35 @@ function EntryDoorsSection() {
   )
 }
 
-function SprintSection() {
+function ServicesSection() {
   return (
-    <section className="ri-pr-sprint" id="diseno">
-      <div className="ri-pr-sprint-grid">
-        <article className="ri-pr-sprint-copy">
-          <p className="ri-pr-eyebrow">02 / EL SPRINT</p>
-          <h2>Después convertimos la decisión.<span>En trabajo distinto.</span></h2>
-          <p>Con el frente que salió del Diagnóstico, diseñamos un resultado prioritario, una decisión recurrente y la información que el equipo necesita para responder.</p>
-          <p className="ri-pr-sprint-note">El Sprint termina con una forma acordada de trabajar y un primer ciclo para aprender si el cambio contribuye al resultado elegido.</p>
-        </article>
-        <div className="ri-pr-deliverables" aria-label="Entregables del Sprint">
-          {sprintDeliverables.map((item) => (
-            <article className="ri-pr-deliverable" key={item.index}>
-              <span>{item.index}</span>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function DiagnosticSection() {
-  return (
-    <section className="ri-pr-diagnostic" id="diagnostico">
-      <header className="ri-pr-section-head">
-        <p className="ri-pr-eyebrow">01 / LA PUERTA DE ENTRADA</p>
-        <h2>Primero identificamos el resultado crítico.<span>Y dónde vale la pena intervenir.</span></h2>
+    <section className="ri-pr-services" id="servicios" aria-labelledby="services-heading">
+      <header className="ri-pr-section-head ri-pr-services-heading">
+        <p className="ri-pr-eyebrow">NUESTROS SERVICIOS</p>
+        <h2 id="services-heading">Diagnóstico y Sprint</h2>
+        <p>El Diagnóstico identifica dónde intervenir. El Sprint construye y pone a prueba el diseño. Cada servicio tiene sus entregables, alcance y precio acordados antes de empezar.</p>
       </header>
-      <div className="ri-pr-diagnostic-grid">
-        <div className="ri-pr-diagnostic-steps" aria-label="Pasos del diagnóstico">
-          {diagnosticSteps.map((step) => (
-            <article className="ri-pr-diagnostic-step" key={step.index}>
-              <span>{step.index}</span>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </article>
-          ))}
-        </div>
-        <article className="ri-pr-diagnostic-record">
-          <div className="ri-pr-record-topline">
-            <span>NOTA / DECISIÓN</span>
-            <span>DIAGNÓSTICO</span>
-          </div>
-          <p className="ri-pr-record-kicker">Al cierre queda claro</p>
-          <h3>Dónde intervenir primero.</h3>
-          <ul>
-            <li>El resultado que importa.</li>
-            <li>La hipótesis que vale la pena probar.</li>
-            <li>El frente prioritario y el siguiente paso.</li>
-          </ul>
-          <p>Puede concluir que IA no es pertinente o que la restricción requiere otra especialidad. Esa también es una salida útil.</p>
-          <a className="ri-pr-button ri-pr-button-purple" href="#formulario">{ctaLabel}</a>
-        </article>
+      <div className="ri-pr-service-grid">
+        {services.map((service) => (
+          <article className="ri-pr-service-card" id={service.id} key={service.id}>
+            <header className="ri-pr-service-card-head">
+              <p className="ri-pr-service-label">SERVICIO {service.index}</p>
+              <h3>{service.name}</h3>
+              <p className="ri-pr-service-summary">{service.summary}</p>
+            </header>
+            <dl className="ri-pr-service-details">
+              <div><dt>Para qué sirve</dt><dd>{service.purpose}</dd></div>
+              <div><dt>Qué hacemos</dt><dd>{service.work}</dd></div>
+              <div><dt>Qué recibes</dt><dd>{service.deliverable}</dd></div>
+            </dl>
+            <div className="ri-pr-service-card-end">
+              <p>{service.timing}</p>
+              <a className="ri-pr-button ri-pr-button-purple" href="#formulario">{service.cta}</a>
+            </div>
+          </article>
+        ))}
       </div>
+      <p className="ri-pr-services-intro">Antes de contratar, podemos conversar hasta 30 minutos sin costo para entender tu operación y revisar por dónde empezar.</p>
     </section>
   )
 }
@@ -187,8 +160,8 @@ function ImpactSection() {
     <section className="ri-pr-impact" id="resultados">
       <header className="ri-pr-section-head ri-pr-section-head-impact">
         <p className="ri-pr-eyebrow">RESULTADOS EN EL TRABAJO</p>
-        <h2>No terminamos con un análisis.<span>El trabajo tiene que cambiar.</span></h2>
-        <p>Definimos señales desde el inicio —respuesta, calidad, retrabajo, capacidad o decisiones— y cerramos el Sprint con una prueba que el equipo puede revisar.</p>
+        <h2>El diseño se demuestra<span>en el trabajo real.</span></h2>
+        <p>Elegimos un indicador del negocio y observamos qué cambia al usar el contexto, los acuerdos y la IA en la operación.</p>
       </header>
       <div className="ri-pr-impact-grid" aria-label="Cambios que busca el Sprint">
         {impactOutcomes.map((outcome) => (
@@ -200,11 +173,11 @@ function ImpactSection() {
         ))}
       </div>
       <aside className="ri-pr-technical-boundary" id="limites">
-        <p>NOTA DE ALCANCE / RESPONSABILIDAD HUMANA</p>
+        <p>COMPROMISO DE ENTREGA</p>
         <div>
-          <h3>La solución puede incluir IA y un proveedor técnico.<br />Nuestro trabajo es hacer que el equipo pueda usarla con criterio.</h3>
+          <h3>Una entrega que podemos comprobar juntos.</h3>
           <ul>
-            {technicalBoundaries.map((item) => <li key={item}>{item}</li>)}
+            {deliveryCommitments.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
       </aside>
@@ -218,7 +191,7 @@ function FAQSection() {
       <div className="ri-pr-faq-grid">
         <header className="ri-pr-section-head">
           <p className="ri-pr-eyebrow">PREGUNTAS FRECUENTES</p>
-          <h2>Lo que diseñamos.<span>Y lo que dejamos fuera.</span></h2>
+          <h2>Cómo trabajamos<span>con tu empresa.</span></h2>
         </header>
         <div className="ri-pr-faq-list">
           {faqEntries.map((entry) => (
@@ -296,14 +269,14 @@ function ContactSection() {
       <div className="ri-pr-final-grid">
         <header className="ri-pr-final-copy">
           <p className="ri-pr-eyebrow">SIGUIENTE PASO</p>
-          <h2>¿Qué resultado necesita mejorar tu equipo?<span>Empecemos por el Diagnóstico.</span></h2>
-          <p>La conversación de encaje es breve y sin costo. El Diagnóstico es una intervención pagada y acotada para decidir dónde tiene sentido intervenir.</p>
+          <h2>¿Qué resultado necesita mejorar tu equipo?<span>Conversemos sobre tu operación.</span></h2>
+          <p>La primera conversación dura hasta 30 minutos y es sin costo. Cuéntanos qué buscas mejorar; revisaremos juntos si tiene sentido avanzar a un diagnóstico pagado.</p>
         </header>
 
         <aside className="ri-pr-form-panel" aria-label="Formulario para solicitar un diagnóstico">
           <div className="ri-pr-form-head">
             <span>FORMULARIO / 06</span>
-            <h3>Solicitar Diagnóstico de un resultado crítico.</h3>
+            <h3>Cuéntanos qué quieres mejorar.</h3>
           </div>
           {submitted ? (
             <div className="ri-pr-form-confirmation" role="status">
@@ -329,7 +302,7 @@ function ContactSection() {
       </div>
       <footer className="ri-pr-footer-line">
         <span>Re-integration / Trabajo humano + IA</span>
-        <span>Trabajo real. Decisiones visibles.</span>
+        <span>Re Integration. Rediseñamos el trabajo que ya cambió.</span>
         <a href={`mailto:${contactEmail}`}>Contacto: {contactEmail}</a>
       </footer>
     </section>
